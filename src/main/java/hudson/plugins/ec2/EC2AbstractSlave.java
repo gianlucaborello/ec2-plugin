@@ -306,6 +306,11 @@ public abstract class EC2AbstractSlave extends Slave {
             return;
         }
 
+        if (getInstanceId() == null) {
+            lastFetchInstance = null;
+            return;
+        }
+
         Instance i = getInstance(getInstanceId(), getCloud());
 
         lastFetchTime = now;
